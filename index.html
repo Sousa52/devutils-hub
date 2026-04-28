@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DevUtils Hub — Privacy-first, all-in-one developer tools. JSON, passwords, QR codes, regex, colors, hashes, and more. 100% client-side." />
+  <meta name="keywords" content="developer tools, JSON formatter, password generator, QR code, regex tester, hash generator, base64, URL encoder" />
+  <meta name="author" content="Sousa_52" />
+  <meta name="theme-color" content="#00ff88" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="DevUtils Hub — Developer Utilities" />
+  <meta property="og:description" content="Privacy-first, all-in-one developer tools. Runs 100% in your browser." />
+  <meta property="og:type" content="website" />
+
+  <title>DevUtils Hub — Developer Utilities</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ══════════════════════════════════════════ HEADER -->
+  <header id="header">
+    <div id="header-left">
+      <button id="menu-toggle" aria-label="Toggle sidebar">☰</button>
+      <a class="logo" href="#" onclick="navigate('json');return false">
+        <div class="logo-icon">⚙</div>
+        <span class="logo-text">Dev<span>Utils</span> Hub</span>
+      </a>
+    </div>
+    <div id="header-right">
+      <button id="theme-toggle" class="btn-icon" title="Toggle theme">☀</button>
+      <a href="https://github.com/Sousa52" target="_blank" rel="noopener"
+         class="btn-icon btn-github" title="Star on GitHub">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+        <span class="btn-github-text">Star on GitHub</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════ SIDEBAR -->
+  <nav id="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Data &amp; Format</div>
+      <a class="nav-item" data-tool="json">
+        <span class="nav-icon">{ }</span>
+        <span class="nav-label">JSON Formatter</span>
+      </a>
+      <a class="nav-item" data-tool="hash">
+        <span class="nav-icon">#</span>
+        <span class="nav-label">Hash Generator</span>
+      </a>
+      <a class="nav-item" data-tool="encode">
+        <span class="nav-icon">⇄</span>
+        <span class="nav-label">Encode / Decode</span>
+      </a>
+      <a class="nav-item" data-tool="timestamp">
+        <span class="nav-icon">⏱</span>
+        <span class="nav-label">Timestamp</span>
+      </a>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Visual &amp; Media</div>
+      <a class="nav-item" data-tool="color">
+        <span class="nav-icon">◉</span>
+        <span class="nav-label">Color Tools</span>
+      </a>
+      <a class="nav-item" data-tool="qr">
+        <span class="nav-icon">⬛</span>
+        <span class="nav-label">QR Generator</span>
+      </a>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Security</div>
+      <a class="nav-item" data-tool="password">
+        <span class="nav-icon">🔑</span>
+        <span class="nav-label">Password Gen</span>
+      </a>
+      <a class="nav-item" data-tool="regex">
+        <span class="nav-icon">.*</span>
+        <span class="nav-label">Regex Tester</span>
+      </a>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Text Utilities</div>
+      <a class="nav-item" data-tool="uuid">
+        <span class="nav-icon">◈</span>
+        <span class="nav-label">UUID Generator</span>
+      </a>
+      <a class="nav-item" data-tool="lorem">
+        <span class="nav-icon">¶</span>
+        <span class="nav-label">Lorem Ipsum</span>
+      </a>
+      <a class="nav-item" data-tool="wordcount">
+        <span class="nav-icon">Σ</span>
+        <span class="nav-label">Word Counter</span>
+      </a>
+      <a class="nav-item" data-tool="case">
+        <span class="nav-icon">Aa</span>
+        <span class="nav-label">Case Converter</span>
+      </a>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-footer-text">
+        Made by <a href="https://github.com/Sousa52" target="_blank">Sousa_52</a><br/>
+        Free &amp; Open Source
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar overlay (mobile) -->
+  <div id="sidebar-overlay"></div>
+
+  <!-- ══════════════════════════════════════════ MAIN -->
+  <main id="main">
+
+    <!-- ─────────── JSON FORMATTER ─────────── -->
+    <section id="tool-json" class="tool-panel">
+      <div class="tool-header">
+        <div>
+          <h1 class="tool-title"><span class="tool-title-icon">{ }</span> JSON Formatter &amp; Validator</h1>
+          <p class="tool-desc">Pretty print · Minify · Validate · Tree view · Convert to YAML</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <label for="json-input">Input JSON</label>
+        <textarea id="json-input" placeholder='{"hello": "world", "nums": [1, 2, 3]}' style="min-height:200px;font-size:0.8rem"></textarea>
+      </div>
+
+      <div class="section btn-row">
+        <button id="json-pretty"   class="btn btn-primary">⊞ Format</button>
+        <button id="json-minify"   class="btn btn-secondary">⊟ Minify</button>
+        <button id="json-validate" class="btn btn-secondary">✓ Validate</button>
+        <button id="json-tree"     class="btn btn-secondary">⊕ Tree View</button>
+        <button id="json-yaml"     class="btn btn-secondary">→ YAML</button>
+        <button id="json-copy"     class="btn btn-ghost">⎘ Copy</button>
+        <button id="json-download" class="btn btn-ghost">↓ Download</button>
+        <button id="json-clear"    class="btn btn-danger">✕ Clear</button>
+      </div>
+
+      <div id="json-status" class="status-bar" style="margin-bottom:12px;min-height:36px"></div>
+
+      <div class="section">
+        <label>Output</label>
+        <div id="json-output" class="code-block json-tree" style="min-height:200px"></div>
+      </div>
+    </section>
+
+    <!-- ─────────── PASSWORD GENERATOR ─────────── -->
+    <section id="tool-password" class="tool-panel">
+      <div class="tool-header">
+        <div>
+          <h1 class="tool-title"><span class="tool-title-icon">🔑</span> Password Generator</h1>
+          <p class="tool-desc">Cryptographically secure · Strength meter · Entropy calculation</p>
+        </div>
+      </div>
+
+      <div class="card section">
+        <div id="pass-output" class="pass-output mb-3">Click Generate →</div>
+        <div class="strength-bar"><div id="strength-fill" class="strength-fill" style="width:0%"></div></div>
+        <div class="flex justify-between mt-2">
+          <span id="strength-label" class="text-sm text-mono" style="color:var(--text-muted)">—</span>
+          <span class="text-xs text-mono text-muted">Entropy: <b id="pass-entropy" class="text-accent">—</b></span>
+        </div>
+      </div>
+
+      <div class="grid-2 section">
+        <div>
+          <label>Length: <span id="pass-len-val" class="text-accent">16</span></label>
+          <input type="range" id="pass-length" min="4" max="128" value="16" class="input" style="resize:none;padding:4px 0;background:none;border:none" />
+        </div>
+        <div>
+          <label>Character Sets</label>
+          <div class="toggle-group">
+            <label class="toggle-item"><input type="checkbox" id="pass-upper" checked /> A–Z</label>
+            <label class="toggle-item"><input type="checkbox" id="pass-lower" checked /> a–z</label>
+            <label class="toggle-item"><input type="checkbox" id="pass-nums"  checked /> 0–9</label>
+            <label class="toggle-item"><input type="checkbox" id="pass-syms"        /> !@#…</label>
+            <label class="toggle-item"><input type="checkbox" id="pass-phrase"      /> Passphrase</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button id="pass-generate" class="btn btn-primary">⟳ Generate</button>
+        <button id="pass-copy"     class="btn btn-secondary">⎘ Copy Password</button>
+      </div>
+    </section>
+
+    <!-- ─────────── ENCODE / DECODE ─────────── -->
+    <section id="tool-encode" class="tool-panel">
+      <div class="tool-header">
+        <div>
+          <h1 class="tool-title"><span class="tool-title-icon">⇄</span> Encode / Decode</h1>
+          <p class="tool-desc">Base64 · URL · HTML entities · Hex</p>
+        </div>
+      </div>
+
+      <div class="grid-io section">
+        <div>
+          <label>Input</label>
+          <textarea id="enc-input" placeholder="Enter text to encode or decode…"></textarea>
+        </div>
+        <div>
+          <label>Output</label>
+          <textarea id="enc-output" placeholder="Result appears here…" readonly></textarea>
+        </div>
+      </div>
+
+      <div class="btn-row section">
+        <button class="btn btn-primary"    data-enc="b64e">Base64 Encode</button>
+        <button class="btn btn-secondary"  data-enc="b64d">Base64 Decode</button>
+        <button class="btn btn-primary"    data-enc="urle">URL Encode</button>
+        <button class="btn btn-secondary"  data-enc="urld">URL Decode</button>
+        <button class="btn btn-primary"    data-enc="htmle">HTML Encode</button>
+        <button class="btn btn-secondary"  data-enc="htmld">HTML Decode</button>
+        <button class="btn btn-primary"    data-enc="hexe">Hex Encode</button>
+        <button class="btn btn-secondary"  data-enc="hexd">Hex Decode</button>
+      </div>
+
+      <div class="btn-row">
+        <button id="enc-copy"  class="btn btn-ghost">⎘ Copy Output</button>
+        <button id="enc-swap"  class="btn btn-ghost">⇅ Swap</button>
+        <button id="enc-clear" class="btn btn-danger">✕ Clear</button>
+      </div>
+    </section>
+
+    <!-- ─────────── QR CODE ─────────── -->
+    <section id="tool-qr" class="tool-panel">
+      <div class="tool-header">
+        <div>
+          <h1 class="tool-title"><span class="tool-title-icon">⬛</span> QR Code Generator</h1>
+          <p class="tool-desc">Generate QR codes from text or URLs · Download as PNG</p>
+        </div>
+      </div>
+
+      <div class="grid-2 section">
+        <div>
+          <div class="section">
+            <label>Text or URL</label>
+            <input id="qr-input" class="input" type="text" placeholder="https://example.com or any text…" />
+          </div>
+          <div class="grid-2 section">
+            <div>
+              <label>Size (px)</label>
+              <input id="qr-size" class="input" type="number" value="256" min="64" max="512" step="32" />
+            </div>
+            <div>
+              <label style="display:flex;gap:16px">
+                <span>FG Color</span>
+                <span>BG Color</span>
+              </label>
+              <div class="flex gap-2">
+                <input id="qr-fg" type="color" value="#000000" class="color-swatch" style="width:44px;height:38px;padding:2px;cursor:pointer" />
+                <input id="qr-bg" type="color" value="#ffffff" class="color-swatch" style="width:44px;height:38px;padding:2px;cursor:pointer" />
+              </div>
+            </div>
+          </div>
+          <div class="btn-row">
+            <button id="qr-generate" class="btn btn-primary">⬛ Generate QR</button>
+            <button id="qr-download" class="btn btn-secondary" disabled>↓ Download PNG</button>
+          </div>
+        </div>
+        <div>
+          <label>Preview</label>
+          <div id="qr-output" style="display:flex;justify-content:center;align-items:center;background:#fff;border-radius:var(--radius-lg);padding:16px;min-height:200px;border:1px solid var(--border)">
+            <span style="color:#999;font-family:var(--font-mono);font-size:0.8rem">QR code will appear here</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── REGEX TESTER ─────────── -->
+    <section id="tool-regex" class="tool-panel">
+      <div class="tool-header">
+        <div>
+          <h1 class="tool-title"><span class="tool-title-icon">.*</span> Regex Tester</h1>
+          <p class="tool-desc">Live match highlighting · Group capture · Multi-flag support</p>
+        </div>
+      </div>
+
+      <div class="grid-2 section">
+        <div>
+          <label>Pattern</label>
+          <input id="regex-pattern" class="input" type="text" placeholder="e.g. \b\w+@\w+\.\w+\b" style="font-family:var(--font-mono)" />
+        </div>
+        <div>
+          <label>Flags</label>
+          <input id="regex-flags" class="input" type="text" value="gi" maxlength="6" placeholder="g i m s u y" style="font-family:var(--font-mono);max-width:120px" />
+        </div>
+      </div>
+
+      <div class="section">
+        <label>Test String</label>
+        <textarea id="regex-text" placeholder="Enter text to test against the pattern…" style="min-height:120px"></textarea>
+      </div>
+
+      <div id="regex-info" class="status-bar mb-3" style="min-height:36px"></div>
+
+      <div class="section">
+        <label>Match Highlights</label>
+        <div id="regex-output" class="code-block" style="min-height:80px;white-space:pre-wrap;word-break:break-word"></div>
+      </div>
+
+      <div class="section">
+        <label>Match Details</label>
+        <pre id="regex-groups" class="code-block" style="min-height:40px"></pre>
+      </div>
+
+      <div class="btn-row">
+        <button id="regex-clear" class="btn btn-danger">✕ Clear All</button>
+      </div>
+    </section>
+
+    <!-- ─────────── COLOR TOOLS ─────────── -->
+    <section id="tool-color" class="tool-panel">
+      <div class="tool-header">
+        <div>
+          <h1 class="tool-title"><span class="tool-title-icon">◉</span> Color Tools</h1>
+          <p class="tool-desc">Picker · Palette generator · WCAG contrast checker · Gradient maker</p>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-color-tab="picker">Color Picker</button>
+        <button class="tab-btn"       data-color-tab="palette">Palette</button>
+        <button class="tab-btn"       data-color-tab="contrast">Contrast (WCAG)</button>
+        <button class="tab-btn"       data-color-tab="gradient">Gradient</button>
+      </div>
+
+      <!-- Picker tab -->
+      <div id="color-tab-picker" class="color-tab-panel">
+        <div class="grid-2">
+          <div>
+            <div class="section">
+              <label>Color Picker</label>
+              <div class="flex gap-3 items-center">
+                <input id="color-picker" type="color" value="#3498db"
+                  style="width:64px;height:64px;padding:4px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg-tertiary);cursor:pointer" />
+                <div id="color-preview-box" style="width:64px;height:64px;border-radius:var(--radius);border:1px solid var(--border);background:#3498db;transition:background 0.2s"></div>
+              </div>
+            </div>
+            <div class="section">
+              <label>HEX</label>
+              <input id="color-hex-out" class="input" type="text" value="#3498DB" style="cursor:pointer" title="Click to copy" readonly />
+            </div>
+            <div class="section">
+              <label>RGB</label>
+              <input id="color-rgb-out" class="input" type="text" readonly style="cursor:pointer" title="Click to copy" />
+            </div>
+            <div class="section">
+              <label>HSL</label>
+              <input id="color-hsl-out" class="input" type="text" readonly style="cursor:pointer" title="Click to copy" />
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center">
+            <div id="color-preview-box-large" style="width:100%;height:200px;border-radius:var(--radius-lg);border:1px solid var(--border);background:linear-gradient(135deg, #3498db, #9b59b6);transition:background 0.2s"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Palette tab -->
+      <div id="color-tab-palette" class="color-tab-panel hidden">
+        <div class="section">
+          <label>Base Color</label>
+          <div class="flex gap-3 items-center">
+            <input id="color-picker" type="color" value="#3498db"
+              style="width:48px;height:48px;padding:3px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg-tertiary);cursor:pointer" />
+            <button id="color-palette-btn" class="btn btn-primary">◉ Generate Palette</button>
+          </div>
+        </div>
+        <div id="color-palette-out" class="color-palette section" style="min-height:80px"></div>
+        <p class="text-xs text-muted text-mono mt-2">Click any swatch to copy its value</p>
+      </div>
+
+      <!-- Contrast tab -->
+      <div id="color-tab-contrast" class="color-tab-panel hidden">
+        <div class="grid-2 section">
+          <div>
+            <label>Foreground Color</label>
+            <div class="flex gap-2 items-center">
+              <input id="contrast-fg" type="color" value="#ffffff"
+                style="width:44px;height:38px;padding:2px;border-radius:var(--radius);border:1px solid var(--border);cursor:pointer" />
+              <span class="text-mono text-sm" style="min-width:70px">#FFFFFF</span>
+            </div>
+          </div>
+          <div>
+            <label>Background Color</label>
+            <div class="flex gap-2 items-center">
+              <input id="contrast-bg" type="color" value="#0a0e1a"
+                style="width:44px;height:38px;padding:2px;border-radius:var(--radius);border:1px solid var(--border);cursor:pointer" />
+              <span class="text-mono text-sm" style="min-width:70px">#0A0E1A</span>
+            </div>
+          </div>
+        </div>
+        <div class="btn-row section">
+          <button id="contrast-check" class="btn btn-primary">✓ Check Contrast</button>
+        </div>
+        <div id="contrast-result" class="section"></div>
+      </div>
+
+      <!-- Gradient tab -->
+      <div id="color-tab-gradient" class="color-tab-panel hidden">
+        <div class="grid-2 section">
+          <div>
+            <label>Color 1</label>
+            <input id="grad-c1" type="color" value="#00ff88"
+              style="width:100%;height:48px;padding:4px;border-radius:var(--radius);border:1px solid var(--border);cursor:pointer" />
+          </div>
+          <div>
+            <label>Color 2</label>
+            <input id="grad-c2" type="color" value="#3498db"
+              style="width:100%;height:48px;padding:4px;border-radius:var(--radius);border:1px solid var(--border);cursor:pointer" />
+          </div>
+        </div>
+        <div class="grid-2 section">
+          <div>
+            <label>Type</label>
+            <select id="grad-type" class="input">
+              <option value="linear">Linear</option>
+              <option value="radial">Radial</option>
+            </select>
+          </div>
+          <div>
+            <label>Angle (linear only)</label>
+            <input id="grad-deg" class="input" type="number" value="135" min="0" max="360" />
+          </div>
+        </div>
+        <div class="section">
+          <div id="grad-preview" class="gradient-preview"></div>
+        </div>
+        <div class="section flex gap-2 items-center">
+          <input id="grad-css" class="input" type="text" readonly style="font-family:var(--font-mono)" />
+          <button id="grad-copy-css" class="btn btn-secondary" style="white-space:nowrap">⎘ Copy CSS</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── TIMESTAMP ─────────── -->
+    <section id="tool-timestamp" class="tool-panel">
+      <div class="tool-header">
+        <div>
+          <h1 class="tool-title"><span class="tool-title-icon">⏱</span> Timestamp Converter</h1>
+          <p class="tool-desc">Unix timestamp ↔ human-readable · Timezone aware</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <label>Unix Timestamp or Date String</label>
+        <div class="flex gap-2">
+          <input id="ts-input" class="input" type="text" placeholder="e.g. 1700000000 or 2024-01-15T10:30:00" style="max-width:400px" />
+          <button id="ts-now"     class="btn btn-secondary">Now</button>
+          <button id="ts-convert" class="btn btn-primary">Convert</button>
+        </div>
+      </div>
+
+      <div id="ts-output" class="card section" style="min-height:100px"></div>
+    </section>
+
+    <!-- ─────────── HASH GENERATOR ─────────── -->
+    <section id="tool-hash" class="tool-panel">
+      <div class="tool-header">
+        <div>
+          <h1 class="tool-title"><span class="tool-title-icon">#</span> Hash Generator</h1>
+          <p class="tool-desc">MD5 · SHA-256 · SHA-512 — computed instantly in your browser</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <label>Input Text</label>
+        <textarea id="hash-input" placeholder="Enter text to hash…" style="min-height:120px"></textarea>
+      </div>
+
+      <div class="btn-row section">
+        <button id="hash-compute" class="btn btn-primary">⚡ Compute Hashes</button>
+      </div>
+
+      <div class="section">
+        <div class="card" style="margin-bottom:12px">
+          <div class="flex justify-between items-center mb-2">
+            <label style="margin:0;color:var(--text-muted)">MD5</label>
+            <button id="hash-copy-md5" class="btn btn-ghost" style="padding:3px 10px;font-size:0.72rem">⎘ Copy</button>
+          </div>
+          <div id="hash-md5" class="hash-output">—</div>
+        </div>
+        <div class="card" style="margin-bottom:12px">
+          <div class="flex justify-between items-center mb-2">
+            <label style="margin:0;color:var(--text-muted)">SHA-256</label>
+            <button id="hash-copy-sha256" class="btn btn-ghost" style="padding:3px 10px;font-size:0.72rem">⎘ Copy</button>
+          </div>
+          <div id="hash-sha256" class="hash-output">—</div>
+        </div>
+        <div class="card">
+          <div class="flex justify-between items-center mb-2">
+            <label style="margin:0;color:var(--text-muted)">SHA-512</label>
+            <button id="hash-copy-sha512" class="btn btn-ghost" style="padding:3px 10px;font-size:0.72rem">⎘ Copy</button>
+          </div>
+          <div id="hash-sha512" class="hash-output">—</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── UUID GENERATOR ─────────── -->
+    <section id="tool-uuid" class="tool-panel">
+      <div class="tool-header">
+        <div>
+          <h1 class="tool-title"><span class="tool-title-icon">◈</span> UUID Generator</h1>
+          <p class="tool-desc">Cryptographically random UUIDs (v4)</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <label>Number of UUIDs to generate</label>
+        <input id="uuid-count" class="input" type="number" value="1" min="1" max="100" style="max-width:140px" />
+      </div>
+
+      <div class="btn-row section">
+        <button id="uuid-generate" class="btn btn-primary">◈ Generate</button>
+        <button id="uuid-copy"     class="btn btn-secondary">⎘ Copy All</button>
+        <button id="uuid-clear"    class="btn btn-danger">✕ Clear</button>
+      </div>
+
+      <div class="section">
+        <label>Output</label>
+        <textarea id="uuid-output" readonly style="min-height:200px;font-family:var(--font-mono);font-size:0.8rem"></textarea>
+      </div>
+    </section>
+
+    <!-- ─────────── LOREM IPSUM ─────────── -->
+    <section id="tool-lorem" class="tool-panel">
+      <div class="tool-header">
+        <div>
+          <h1 class="tool-title"><span class="tool-title-icon">¶</span> Lorem Ipsum Generator</h1>
+          <p class="tool-desc">Generate placeholder text for mockups and prototypes</p>
+        </div>
+      </div>
+
+      <div class="grid-2 section">
+        <div>
+          <label>Type</label>
+          <select id="lorem-type" class="input">
+            <option value="words">Words</option>
+            <option value="sentences">Sentences</option>
+            <option value="paragraphs" selected>Paragraphs</option>
+          </select>
+        </div>
+        <div>
+          <label>Count</label>
+          <input id="lorem-count" class="input" type="number" value="3" min="1" max="50" />
+        </div>
+      </div>
+
+      <div class="btn-row section">
+        <button id="lorem-generate" class="btn btn-primary">¶ Generate</button>
+        <button id="lorem-copy"     class="btn btn-secondary">⎘ Copy</button>
+      </div>
+
+      <div class="section">
+        <label>Output</label>
+        <textarea id="lorem-output" readonly style="min-height:240px;font-family:var(--font-sans);font-size:0.9rem;line-height:1.7"></textarea>
+      </div>
+    </section>
+
+    <!-- ─────────── WORD COUNTER ─────────── -->
+    <section id="tool-wordcount" class="tool-panel">
+      <div class="tool-header">
+        <div>
+          <h1 class="tool-title"><span class="tool-title-icon">Σ</span> Word &amp; Character Counter</h1>
+          <p class="tool-desc">Count words, characters, lines, sentences, and reading time</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <label>Your Text</label>
+        <textarea id="wc-input" placeholder="Paste or type your text here…" style="min-height:240px;font-size:0.9rem;line-height:1.7"></textarea>
+      </div>
+
+      <div class="grid-3 section">
+        <div class="card" style="text-align:center">
+          <div style="font-size:2rem;font-weight:800;color:var(--accent);font-family:var(--font-mono)" id="wc-words">0</div>
+          <div class="text-xs text-muted text-mono" style="margin-top:4px">WORDS</div>
+        </div>
+        <div class="card" style="text-align:center">
+          <div style="font-size:2rem;font-weight:800;color:var(--text-primary);font-family:var(--font-mono)" id="wc-chars">0</div>
+          <div class="text-xs text-muted text-mono" style="margin-top:4px">CHARACTERS</div>
+        </div>
+        <div class="card" style="text-align:center">
+          <div style="font-size:2rem;font-weight:800;color:var(--text-primary);font-family:var(--font-mono)" id="wc-chars-ns">0</div>
+          <div class="text-xs text-muted text-mono" style="margin-top:4px">CHARS (NO SPACES)</div>
+        </div>
+        <div class="card" style="text-align:center">
+          <div style="font-size:2rem;font-weight:800;color:var(--text-primary);font-family:var(--font-mono)" id="wc-lines">0</div>
+          <div class="text-xs text-muted text-mono" style="margin-top:4px">LINES</div>
+        </div>
+        <div class="card" style="text-align:center">
+          <div style="font-size:2rem;font-weight:800;color:var(--text-primary);font-family:var(--font-mono)" id="wc-sentences">0</div>
+          <div class="text-xs text-muted text-mono" style="margin-top:4px">SENTENCES</div>
+        </div>
+        <div class="card" style="text-align:center">
+          <div style="font-size:2rem;font-weight:800;color:var(--blue);font-family:var(--font-mono)" id="wc-reading">0 min</div>
+          <div class="text-xs text-muted text-mono" style="margin-top:4px">READING TIME</div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button id="wc-copy"  class="btn btn-secondary">⎘ Copy Text</button>
+        <button id="wc-clear" class="btn btn-danger">✕ Clear</button>
+      </div>
+    </section>
+
+    <!-- ─────────── CASE CONVERTER ─────────── -->
+    <section id="tool-case" class="tool-panel">
+      <div class="tool-header">
+        <div>
+          <h1 class="tool-title"><span class="tool-title-icon">Aa</span> Case Converter</h1>
+          <p class="tool-desc">UPPER · lower · Title · camelCase · PascalCase · snake_case · kebab-case · and more</p>
+        </div>
+      </div>
+
+      <div class="grid-io section">
+        <div>
+          <label>Input</label>
+          <textarea id="case-input" placeholder="Type or paste text here…"></textarea>
+        </div>
+        <div>
+          <label>Output</label>
+          <textarea id="case-output" readonly placeholder="Result appears here…"></textarea>
+        </div>
+      </div>
+
+      <div class="btn-row section">
+        <button class="btn btn-secondary" data-case="upper">UPPER</button>
+        <button class="btn btn-secondary" data-case="lower">lower</button>
+        <button class="btn btn-secondary" data-case="title">Title Case</button>
+        <button class="btn btn-secondary" data-case="sentence">Sentence case</button>
+        <button class="btn btn-primary"   data-case="camel">camelCase</button>
+        <button class="btn btn-primary"   data-case="pascal">PascalCase</button>
+        <button class="btn btn-primary"   data-case="snake">snake_case</button>
+        <button class="btn btn-primary"   data-case="kebab">kebab-case</button>
+        <button class="btn btn-secondary" data-case="dot">dot.case</button>
+        <button class="btn btn-secondary" data-case="const">CONST_CASE</button>
+        <button class="btn btn-secondary" data-case="reverse">esreveR</button>
+        <button class="btn btn-secondary" data-case="alt">AlTeRnAtInG</button>
+      </div>
+
+      <div class="btn-row">
+        <button id="case-copy"  class="btn btn-ghost">⎘ Copy Output</button>
+        <button id="case-swap"  class="btn btn-ghost">⇅ Swap</button>
+        <button id="case-clear" class="btn btn-danger">✕ Clear</button>
+      </div>
+    </section>
+
+    <!-- ─────────── FOOTER (inside main scroll area) ─────────── -->
+    <footer id="footer">
+      <div class="footer-support">
+        <h3>Support this free tool</h3>
+        <a href="https://ko-fi.com/sousa52" target="_blank" rel="noopener" class="btn-support btn-ko-fi">
+          ☕ Buy me a coffee
+        </a>
+        <a href="https://github.com/sponsors/Sousa52" target="_blank" rel="noopener" class="btn-support btn-sponsor">
+          ♥ GitHub Sponsors
+        </a>
+        <a href="https://github.com/Sousa52" target="_blank" rel="noopener" class="btn-support"
+           style="color:var(--text-secondary);border-color:var(--border)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          Star on GitHub
+        </a>
+      </div>
+
+      <div class="footer-meta">
+        Made with ♥ by <a href="https://github.com/Sousa52" target="_blank" rel="noopener">Sousa_52</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/Sousa52/devutils-hub" target="_blank" rel="noopener">View Source</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/Sousa52/devutils-hub/issues" target="_blank" rel="noopener">Report Issue</a>
+      </div>
+
+      <div class="footer-badges">
+        <span class="badge green">✓ No tracking</span>
+        <span class="badge green">✓ Works offline</span>
+        <span class="badge green">✓ Free &amp; Open Source</span>
+        <span class="badge">MIT License</span>
+      </div>
+    </footer>
+
+  </main><!-- /main -->
+</div><!-- /app -->
+
+<!-- Toast notification -->
+<div id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
