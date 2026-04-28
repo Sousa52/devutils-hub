@@ -956,3 +956,20 @@ label {
 .nav-item.active .nav-icon {
   animation: glow-pulse 2s ease infinite;
 }
+/* --- Footer Sponsorship (Coming Soon) State --- */
+
+/* Style for unavailable buttons */
+.btn-disabled {
+    opacity: 0.6;
+    cursor: not-allowed !important;
+    filter: grayscale(0.8);
+    pointer-events: auto; /* Keeps the tooltip/title working */
+    text-decoration: none;
+}
+
+/* Prevents the hover animations while disabled */
+.btn-disabled:hover {
+    transform: none !important; 
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
