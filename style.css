@@ -973,3 +973,14 @@ label {
     background-color: transparent !important;
     box-shadow: none !important;
 }
+/* Custom "Warning" state for active sidebar items */
+.nav-item.active.is-buggy {
+    background: rgba(255, 120, 0, 0.15) !important; /* Soft orange glow */
+    border-left: 3px solid #ff7800 !important;      /* Orange indicator */
+    color: #ff7800 !important;                     /* Orange text */
+}
+
+/* Match the icon color to the text */
+.nav-item.active.is-buggy .nav-icon {
+    color: #ff7800 !important;
+}
