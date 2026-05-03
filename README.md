@@ -4,7 +4,7 @@ A clean, modern collection of useful developer tools and utilities — all in on
 
 Built as a lightweight, single-file dashboard for quick access to everyday dev tools.
 
-![Preview](<img width="1919" height="944" alt="Captura de ecrã 2026-05-03 140828" src="https://github.com/user-attachments/assets/c2e48a8d-fe38-4085-9f0a-5000f8154012" />)  
+![Preview]("https://github.com/user-attachments/assets/c2e48a8d-fe38-4085-9f0a-5000f8154012")  
 
 ## ✨ Features
 
