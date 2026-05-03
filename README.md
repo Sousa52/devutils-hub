@@ -4,7 +4,9 @@ A clean, modern collection of useful developer tools and utilities — all in on
 
 Built as a lightweight, single-file dashboard for quick access to everyday dev tools.
 
-![Preview]("https://github.com/user-attachments/assets/c2e48a8d-fe38-4085-9f0a-5000f8154012")  
+## Preview
+
+🔗 **[Live Demo](https://sousa52.github.io/devutils-hub)**
 
 ## ✨ Features
 
@@ -18,14 +20,20 @@ Built as a lightweight, single-file dashboard for quick access to everyday dev t
 - **Markdown Preview**
 - **Regex Tester**
 - **Timestamp Converter**
-- Dark mode + responsive design
-
-## 🚀 Live Demo
-
-→ **[https://sousa52.github.io/devutils-hub](https://sousa52.github.io/devutils-hub)**
+- Dark mode + fully responsive design
 
 ## 🛠 Tech Stack
 
 - Pure HTML + CSS + Vanilla JavaScript
-- No frameworks or build tools
+- Single file (`index.html`)
 - Hosted for free on **GitHub Pages**
+
+## How to Use
+
+1. Visit the [Live Demo](https://sousa52.github.io/devutils-hub)
+2. Or clone the repo and open `index.html` locally
+
+## Contributing
+
+Feel free to open issues or pull requests if you want to add new tools!
+
