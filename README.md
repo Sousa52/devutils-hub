@@ -1,4 +1,4 @@
-# DevUtils Hub ⚡
+# DevUtils Hub 
 
 A clean, modern collection of useful developer tools and utilities — all in one place.
 
@@ -8,7 +8,7 @@ Built as a lightweight, single-file dashboard for quick access to everyday dev t
 
 🔗 **[Live Demo](https://sousa52.github.io/devutils-hub)**
 
-## ✨ Features
+##  Features
 
 - **JSON Formatter & Validator**
 - **Base64 Encoder / Decoder**
@@ -22,7 +22,7 @@ Built as a lightweight, single-file dashboard for quick access to everyday dev t
 - **Timestamp Converter**
 - Dark mode + fully responsive design
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - Pure HTML + CSS + Vanilla JavaScript
 - Single file (`index.html`)
